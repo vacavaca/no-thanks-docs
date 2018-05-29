@@ -1,0 +1,475 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Recipes · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="recipes.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="recipes.html">
+            
+                <a href="recipes.html">
+            
+                    
+                    Recipes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="recipes.html">
+            
+                <a href="recipes.html#network-request">
+            
+                    
+                    Network Request
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="recipes.html">
+            
+                <a href="recipes.html#reading-large-file">
+            
+                    
+                    Reading Large File
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="reference.html">
+            
+                <a href="reference.html">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="reference.html">
+            
+                <a href="reference.html#cancellablepromise">
+            
+                    
+                    CancellablePromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="reference.html">
+            
+                <a href="reference.html#cancellable">
+            
+                    
+                    cancellable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="reference.html">
+            
+                <a href="reference.html#interruptible">
+            
+                    
+                    interruptible
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="reference.html">
+            
+                <a href="reference.html#coroutine">
+            
+                    
+                    coroutine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="reference.html">
+            
+                <a href="reference.html#compose">
+            
+                    
+                    compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="reference.html">
+            
+                <a href="reference.html#decompose">
+            
+                    
+                    decompose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Recipes</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="recipes">Recipes</h1>
+<h2 id="network-request">Network Request</h2>
+<p>Make a cancellable network request</p>
+<p><strong>interruptible</strong> method will be used because <code>fetch</code> interface supports immediate cancellation of the request</p>
+<p>Using <code>fetch</code> and <code>AbortController</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> { interruptible, compose, decompose } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;no-thanks&apos;</span>)
+
+<span class="hljs-keyword">const</span> controller = <span class="hljs-keyword">new</span> AbortController()
+
+<span class="hljs-keyword">const</span> request = interruptible(<span class="hljs-keyword">async</span> () =&gt;
+    compose(fetch({
+        signal: controller.signal,
+        <span class="hljs-comment">/* other request options */</span>
+    })), () =&gt; controller.abort())().then(decompose)
+</code></pre>
+<p>or without closure</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> { interruptible } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;no-thanks&apos;</span>)
+
+<span class="hljs-keyword">const</span> request = interruptible(<span class="hljs-keyword">async</span> grain =&gt; {
+    <span class="hljs-keyword">const</span> controller = grain(<span class="hljs-keyword">new</span> AbortController())
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> fetch({
+        signal: controller.signal,
+        <span class="hljs-comment">/* other request options */</span>
+    })
+}, controller =&gt; controller != <span class="hljs-literal">null</span> &amp;&amp; controller.abort())
+</code></pre>
+<h3 id="general-purpose-request-function">General Purpose Request Function</h3>
+<p>It&apos;s the same request but it takes options as an argument</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> { interruptible } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;no-thanks&apos;</span>)
+
+<span class="hljs-keyword">const</span> request = interruptible(<span class="hljs-keyword">async</span> (grain, url, options = {}) =&gt; {
+    <span class="hljs-keyword">const</span> controller = grain(<span class="hljs-keyword">new</span> AbortController())
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> fetch(url, {
+        ...options,
+        signal: controller.signal,
+    })
+}, controller =&gt; controller != <span class="hljs-literal">null</span> &amp;&amp; controller.abort())
+
+<span class="hljs-keyword">const</span> getCurrentBitcoinPrice = () =&gt; request(<span class="hljs-string">&apos;https://api.bitfinex.com/v1/pubticker/btcusd&apos;</span>)
+    .then(response =&gt; response.json())
+    .then(({ last_price }) =&gt; last_price)
+</code></pre>
+<hr>
+<p>A few more examples of cancellable requests using <strong>jQuery.ajax</strong> with jquery &gt;= 1.5.1</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> { interruptible } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;no-thanks&apos;</span>)
+
+<span class="hljs-keyword">const</span> request = interruptible(<span class="hljs-keyword">async</span> grain =&gt; {
+    <span class="hljs-keyword">const</span> request = grain($.ajax({
+        <span class="hljs-comment">/* request options */</span>
+    }))
+    <span class="hljs-keyword">return</span> request.promise()
+}, request =&gt; {
+    <span class="hljs-keyword">if</span> (request != <span class="hljs-literal">null</span>) {
+        <span class="hljs-keyword">return</span> request.abort()
+            .catch(err =&gt; {
+                <span class="hljs-keyword">if</span> (err.statusText === <span class="hljs-string">&apos;abort&apos;</span>)
+                    <span class="hljs-keyword">return</span>;
+
+                <span class="hljs-keyword">throw</span> err
+            })
+    }
+})
+
+<span class="hljs-comment">// request().cancel()</span>
+</code></pre>
+<p>Using <strong>jQuery.ajax</strong> with jquery &lt;= 1.5</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> { cancellable } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;no-thanks&apos;</span>)
+
+<span class="hljs-keyword">const</span> request = interruptible(<span class="hljs-keyword">async</span> grain =&gt; {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; grain($.ajax({
+        <span class="hljs-comment">/* request options */</span>
+        success: resolve,
+        error: (jqXhr, status, errorMessage) =&gt; {
+            <span class="hljs-keyword">if</span> (status === <span class="hljs-string">&apos;abort&apos;</span>) resolve(jqXhr)
+            <span class="hljs-keyword">else</span> reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(errorMessage))
+        }
+    })))
+}, request =&gt; { request != <span class="hljs-literal">null</span> &amp;&amp; request.abort() })
+</code></pre>
+<h2 id="reading-large-file">Reading Large File</h2>
+<p>For example let&apos;s sum the bytes in a file using <strong>nodejs</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>)
+<span class="hljs-keyword">const</span> { promisify } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;util&apos;</span>)
+<span class="hljs-keyword">const</span> { cancellable } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;no-thanks&apos;</span>)
+
+<span class="hljs-keyword">const</span> open = promisify(fs.open)
+<span class="hljs-keyword">const</span> stat = promisify(fs.stat)
+<span class="hljs-keyword">const</span> read = promisify(fs.read)
+
+<span class="hljs-keyword">const</span> sum = cancellable(<span class="hljs-keyword">async</span> (grain, filename) =&gt; {
+    <span class="hljs-keyword">const</span> { blksize } = <span class="hljs-keyword">await</span> grain(stat(filename))
+    <span class="hljs-keyword">const</span> handle = <span class="hljs-keyword">await</span> grain(open(filename))
+
+    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">let</span> read = <span class="hljs-literal">null</span>
+    <span class="hljs-keyword">while</span> (read == <span class="hljs-literal">null</span> || read &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">const</span> buffer = Buffer.alloc(blksize)
+        read = <span class="hljs-keyword">await</span> grain(read(handle, buffer, <span class="hljs-number">0</span>, blksize, <span class="hljs-number">0</span>))
+        <span class="hljs-keyword">if</span> (read &gt; <span class="hljs-number">0</span>)
+            sum += buffer.reduce((a, b) =&gt; a + b, <span class="hljs-number">0</span>)
+    }
+
+    <span class="hljs-keyword">return</span> sum
+}, (_, handle) =&gt; handle != <span class="hljs-literal">null</span> &amp;&amp; handle.close())
+
+sum(<span class="hljs-string">&apos;dir/some-file.dat&apos;</span>)
+    .then(sum =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Sum: <span class="hljs-subst">${sum}</span>))
+</span></code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="recipes.html#network-request" class="navigation navigation-next " aria-label="Next page: Network Request">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Recipes","level":"1.2","depth":1,"next":{"title":"Network Request","level":"1.2.1","depth":2,"anchor":"#network-request","path":"recipes.md","ref":"recipes.md#network-request","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"intro.md","ref":"intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"root":"doc/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"intro.md","glossary":"GLOSSARY.md","summary":"summary.md"},"variables":{},"gitbook":"3.2.2"},"file":{"path":"recipes.md","mtime":"2018-05-29T00:52:24.601Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-29T00:52:36.497Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
