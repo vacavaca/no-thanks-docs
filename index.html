@@ -306,7 +306,13 @@
 <em>granular</em> way.</p>
 <p>This library provides such tools, along with a cancellation callbacks to free up resources after cancel.</p>
 <h2 id="getting-started">Getting Started</h2>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> { CancellablePromise, cancellable, interruptible, coroutine, compose, decompose } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;no-thanks&apos;</span>)
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> {
+    CancellablePromise, 
+    cancellable, 
+    interruptible, 
+    coroutine, 
+    compose, 
+    decompose } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;no-thanks&apos;</span>)
 </code></pre>
 <p>If the package is included in a browser with <code>&lt;script&gt;</code> tag, it can be found at <code>window.noThanks</code> key</p>
 <h3 id="basic-usage">Basic Usage</h3>
@@ -506,7 +512,7 @@ running.cancel()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Recipes","level":"1.2","depth":1,"path":"recipes.md","ref":"recipes.md","articles":[{"title":"Network Request","level":"1.2.1","depth":2,"anchor":"#network-request","path":"recipes.md","ref":"recipes.md#network-request","articles":[]},{"title":"Reading Large File","level":"1.2.2","depth":2,"anchor":"#reading-large-file","path":"recipes.md","ref":"recipes.md#reading-large-file","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing"],"root":"doc/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"intro.md","glossary":"GLOSSARY.md","summary":"summary.md"},"variables":{},"gitbook":"3.2.2"},"file":{"path":"intro.md","mtime":"2018-05-29T01:26:52.390Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-29T01:27:05.227Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Recipes","level":"1.2","depth":1,"path":"recipes.md","ref":"recipes.md","articles":[{"title":"Network Request","level":"1.2.1","depth":2,"anchor":"#network-request","path":"recipes.md","ref":"recipes.md#network-request","articles":[]},{"title":"Reading Large File","level":"1.2.2","depth":2,"anchor":"#reading-large-file","path":"recipes.md","ref":"recipes.md#reading-large-file","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing"],"root":"doc/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"intro.md","glossary":"GLOSSARY.md","summary":"summary.md"},"variables":{},"gitbook":"3.2.2"},"file":{"path":"intro.md","mtime":"2018-05-29T01:29:37.281Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-29T01:29:49.799Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
