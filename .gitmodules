@@ -1,0 +1,3 @@
+[submodule "no-thanks"]
+	path = no-thanks
+	url = git@github.com:vacavaca/no-thanks.git
