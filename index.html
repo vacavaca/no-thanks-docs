@@ -349,7 +349,7 @@ job.cancel()
 <span class="hljs-comment">// outputs:</span>
 <span class="hljs-comment">// &gt; finalization</span>
 </code></pre>
-<p>Because <strong>finalizer is called asynchronously</strong> <code>cancel</code> method of the <code>CacnellablePromise</code> returns a <code>Promise</code> with the result of finalizer call. If the finalizer returns promise it will be automatically chained into a cancellation result promise</p>
+<p>Because <strong>finalizer is called asynchronously</strong> <code>cancel</code> method of the <code>CancellablePromise</code> returns a <code>Promise</code> with the result of finalizer call. If the finalizer returns promise it will be automatically chained into a cancellation result promise</p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> job = cancellable(someTask, () =&gt; <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">42</span>))
 
 job.cancel()
@@ -374,7 +374,7 @@ job.cancel()
 <span class="hljs-comment">// outputs:</span>
 <span class="hljs-comment">// &gt; canceled resul1 result2 undefined</span>
 </code></pre>
-<p>Note that only first two tasks was executed</p>
+<p>Note that only first two tasks were executed</p>
 <h3 id="async-function">Async Function</h3>
 <p>The cancellation of an <code>AsyncFunction</code> is controlled with special argument &quot;<strong>fineGrained</strong>&quot;: <code>boolean</code> in the <code>cancellable</code> signature:</p>
 <blockquote>
@@ -512,7 +512,7 @@ running.cancel()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Recipes","level":"1.2","depth":1,"path":"recipes.md","ref":"recipes.md","articles":[{"title":"Network Request","level":"1.2.1","depth":2,"anchor":"#network-request","path":"recipes.md","ref":"recipes.md#network-request","articles":[]},{"title":"Reading Large File","level":"1.2.2","depth":2,"anchor":"#reading-large-file","path":"recipes.md","ref":"recipes.md#reading-large-file","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing"],"root":"doc/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"intro.md","glossary":"GLOSSARY.md","summary":"summary.md"},"variables":{},"gitbook":"3.2.2"},"file":{"path":"intro.md","mtime":"2018-05-31T10:41:57.976Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-31T10:42:36.995Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Recipes","level":"1.2","depth":1,"path":"recipes.md","ref":"recipes.md","articles":[{"title":"Network Request","level":"1.2.1","depth":2,"anchor":"#network-request","path":"recipes.md","ref":"recipes.md#network-request","articles":[]},{"title":"Reading Large File","level":"1.2.2","depth":2,"anchor":"#reading-large-file","path":"recipes.md","ref":"recipes.md#reading-large-file","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing"],"root":"doc/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"intro.md","glossary":"GLOSSARY.md","summary":"summary.md"},"variables":{},"gitbook":"3.2.2"},"file":{"path":"intro.md","mtime":"2018-05-31T11:59:34.912Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-31T12:00:29.017Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
