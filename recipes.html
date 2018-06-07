@@ -379,15 +379,16 @@
 <span class="hljs-keyword">const</span> read = promisify(fs.read)
 
 <span class="hljs-keyword">const</span> sum = cancellable(<span class="hljs-keyword">async</span> (grain, filename) =&gt; {
-    <span class="hljs-keyword">const</span> { blksize } = <span class="hljs-keyword">await</span> grain(stat(filename))
-    <span class="hljs-keyword">const</span> handle = <span class="hljs-keyword">await</span> grain(open(filename))
+    <span class="hljs-keyword">const</span> { blksize, size } = <span class="hljs-keyword">await</span> grain(stat(filename))
+    <span class="hljs-keyword">const</span> handle = <span class="hljs-keyword">await</span> grain(open(filename, <span class="hljs-string">&apos;r&apos;</span>))
 
     <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">let</span> read = <span class="hljs-literal">null</span>
-    <span class="hljs-keyword">while</span> (read == <span class="hljs-literal">null</span> || read &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">let</span> offset = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">while</span> (offset &lt; size) {
         <span class="hljs-keyword">const</span> buffer = Buffer.alloc(blksize)
-        read = <span class="hljs-keyword">await</span> grain(read(handle, buffer, <span class="hljs-number">0</span>, blksize, <span class="hljs-number">0</span>))
-        <span class="hljs-keyword">if</span> (read &gt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">const</span> { bytesRead } = <span class="hljs-keyword">await</span> grain(read(handle, buffer, <span class="hljs-number">0</span>, blksize, offset))
+        offset += blksize
+        <span class="hljs-keyword">if</span> (bytesRead &gt; <span class="hljs-number">0</span>)
             sum += buffer.reduce((a, b) =&gt; a + b, <span class="hljs-number">0</span>)
     }
 
@@ -395,8 +396,8 @@
 }, (_, handle) =&gt; handle != <span class="hljs-literal">null</span> &amp;&amp; handle.close())
 
 sum(<span class="hljs-string">&apos;dir/some-file.dat&apos;</span>)
-    .then(sum =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Sum: <span class="hljs-subst">${sum}</span>))
-</span></code></pre>
+    .then(sum =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Sum: <span class="hljs-subst">${sum}</span>`</span>))
+</code></pre>
 
                                 
                                 </section>
@@ -440,7 +441,7 @@ sum(<span class="hljs-string">&apos;dir/some-file.dat&apos;</span>)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Recipes","level":"1.2","depth":1,"next":{"title":"Network Request","level":"1.2.1","depth":2,"anchor":"#network-request","path":"recipes.md","ref":"recipes.md#network-request","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"intro.md","ref":"intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"root":"doc/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"intro.md","glossary":"GLOSSARY.md","summary":"summary.md"},"variables":{},"gitbook":"3.2.2"},"file":{"path":"recipes.md","mtime":"2018-05-31T13:25:46.736Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-31T13:26:01.324Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Recipes","level":"1.2","depth":1,"next":{"title":"Network Request","level":"1.2.1","depth":2,"anchor":"#network-request","path":"recipes.md","ref":"recipes.md#network-request","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"intro.md","ref":"intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"root":"doc/","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"intro.md","glossary":"GLOSSARY.md","summary":"summary.md"},"variables":{},"gitbook":"3.2.2"},"file":{"path":"recipes.md","mtime":"2018-06-07T12:27:59.067Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-07T12:28:49.407Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
